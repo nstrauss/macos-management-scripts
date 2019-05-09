@@ -12,7 +12,6 @@ https://github.com/munki/munki/blob/master/code/client/munkilib/osutils.py
 
 import platform
 import subprocess
-import sys
 
 TIME_ZONE = "America/Chicago"
 
