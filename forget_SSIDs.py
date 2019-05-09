@@ -73,7 +73,7 @@ def main():
     # Exit cleanly on Macs with no wireless interface
     if interface is None:
         print("No Wi-Fi interface. Exiting.")
-        exit(0)
+        sys.exit(0)
 
     # Remove SSIDs
     ssids = get_ssids(interface)
