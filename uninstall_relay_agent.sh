@@ -1,9 +1,8 @@
 #!/bin/zsh
-#
+
 # Mac Mobile Filter removal script
 # Copyright Lightspeed Systems 2013
 # Modified by Nathaniel Strauss 2020 because yikes
-#
 
 if [[ $EUID != 0 ]] ; then
     echo "Must be run as root or via sudo"
@@ -26,14 +25,14 @@ rm -rf /Library/LaunchDaemons/com.lightspeedsystems.smartagentjs.plist > /dev/nu
 /usr/local/bin/cagen unload > /dev/null 2>&1
 /usr/local/bin/mobilefilter -unload > /dev/null 2>&1
 /usr/local/bin/proxyforce unload > /dev/null 2>&1
-/sbin/kextunload /Library/Extensions/MobileFilterKext.kext
+/sbin/kextunload -b com.lightspeedsystems.kext.MobileFilterKext
 
 # Remove smart agent files
 rm /usr/local/bin/cagen > /dev/null 2>&1
 rm /usr/local/etc/ca_key.pem > /dev/null 2>&1
 rm /usr/local/etc/ca.pem > /dev/null 2>&1
 rm /usr/local/bin/com.lightspeedsystems.restartservices.plist > /dev/null 2>&1
-rm /usr/local/bin/LightspeedRelaySmartAgentCopyrights.rtf > /dev/null 2>&1
+rm /usr/local/bin/LightspeedSmartAgentCopyrights.rtf > /dev/null 2>&1
 rm /usr/local/bin/lsproxy > /dev/null 2>&1
 rm /usr/local/bin/makeca > /dev/null 2>&1
 rm /usr/local/bin/mobilefilter > /dev/null 2>&1
